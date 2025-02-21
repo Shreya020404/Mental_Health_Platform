@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo.png" />
+    <title>LetItBe - Mind Adventure Quiz</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            /* Fun font */
+            background-color: #f0f8ff;
+            /* Light, cheerful blue */
+            margin: 0;
+            padding: 0;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"%3E%3Cg fill="%23ffcccb" fill-opacity="0.3"%3E%3Cpath d="M60 0a60 60 0 1 0 0 120A60 60 0 0 0 60 0zm0 10a50 50 0 1 1 0 100 50 50 0 0 1 0-100z"/%3E%3C/g%3E%3C/svg%3E');
+            /* Playful pattern */
+            animation: backgroundMove 20s infinite linear;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 120px 120px;
+            }
+        }
+
+        .container {
+            background: linear-gradient(135deg, #89edff, #ffcccb);
+            /* Gradient fun */
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "✨";
+            position: absolute;
+            font-size: 50px;
+            top: 10px;
+            right: 20px;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            color: #ff4500;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .question {
+            display: none;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .question.active {
+            display: block;
+            transform: scale(1.05);
+        }
+
+        label {
+            font-size: 20px;
+            color: #333;
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            accent-color: #ff4500;
+            /* Fun color for radio buttons */
+        }
+
+        button {
+            background: #ff6347;
+            /* Tomato red */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #ff4500;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .result {
+            text-align: center;
+            font-size: 22px;
+            color: #333;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .progress {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #ff4500;
+            border-radius: 5px;
+            width: 0;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌟 Mind Adventure Quiz 🌟</h1>
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <form id="questionnaireForm">
+            <div class="question">
+                <label>1. How’s your mental health vibe today?</label>
+                <input type="radio" name="q1" value="4">Totally rocking it! 🎸<br>
+                <input type="radio" name="q1" value="3">Pretty chill 😊<br>
+                <input type="radio" name="q1" value="2">Meh, it’s okay 🤷<br>
+                <input type="radio" name="q1" value="1">Kinda stormy 🌧️
+                <button type="button" onclick="nextQuestion()">Next Quest! 🚀</button>
+            </div>
+
+            <div class="question">
+                <label>2. Do sad vibes sneak up on you?</label>
+                <input type="radio" name="q2" value="4">Nope, I’m a sunshine machine! ☀️<br>
+                <input type="radio" name="q2" value="3">Sometimes, but I bounce back! 🌈<br>
+                <input type="radio" name="q2" value="2">Yeah, they visit often 😔<br>
+                <input type="radio" name="q2" value="1">All the time, help! 😢
+                <button type="button" onclick="nextQuestion()">Next Quest! 🚀</button>
+            </div>
+
+            <div class="question">
+                <label>3.Stress? How do you handle the chaos?</label>
+                <input type="radio" name="q3" value="4">I’m a stress ninja! 🥷<br>
+                <input type="radio" name="q3" value="3">I manage, no biggie 😎<br>
+                <input type="radio" name="q3" value="2">It’s a struggle sometimes 😅<br>
+                <input type="radio" name="q3" value="1">Stress wins every time 😖
+                <button type="button" onclick="nextQuestion()">Next Quest! 🚀</button>
+            </div>
+
+            <div class="question">
+                <label>4. Ever chatted with a pro about your mind?</label>
+                <input type="radio" name="q4" value="4">Yup, and it was epic! 🌟<br>
+                <input type="radio" name="q4" value="3">Tried it, not my jam 🤔<br>
+                <input type="radio" name="q4" value="2">Thinking about it... 🧐<br>
+                <input type="radio" name="q4" value="1">Nah, I’m good solo! 🏃
+                <button type="button" onclick="nextQuestion()">Next Quest! 🚀</button>
+            </div>
+
+            <div class="question">
+                <label>5. Do you dance or move to feel alive?</label>
+                <input type="radio" name="q5" value="4">Always busting moves! 💃<br>
+                <input type="radio" name="q5" value="3">Sometimes, when I feel it 🕺<br>
+                <input type="radio" name="q5" value="2">I’d love to start! 🚶<br>
+                <input type="radio" name="q5" value="1">Nope, couch potato life 🛋️
+                <button type="button" onclick="nextQuestion()">Next Quest! 🚀</button>
+            </div>
+
+            <div class="question">
+                <label>6. How’s your sleep game?</label>
+                <input type="radio" name="q6" value="4">Dreamland champ! 😴<br>
+                <input type="radio" name="q6" value="3">Pretty decent snoozes 🌙<br>
+                <input type="radio" name="q6" value="2">Tossing and turning 😣<br>
+                <input type="radio" name="q6" value="1">Sleep? What’s that? 👻
+                <button type="button" onclick="nextQuestion()">Next Quest! 🚀</button>
+            </div>
+
+            <div class="question">
+                <label>7. Panic attacks or anxiety vibes?</label>
+                <input type="radio" name="q7" value="4">Never, I’m cool as ice! ❄️<br>
+                <input type="radio" name="q7" value="3">Rarely, I’ve got this! 👍<br>
+                <input type="radio" name="q7" value="2">Sometimes, oof! 😬<br>
+                <input type="radio" name="q7" value="1">Way too often! 😵
+                <button type="button" onclick="nextQuestion()">Next Quest! 🚀</button>
+            </div>
+
+            <div class="question">
+                <label>8. How often do you do stuff you love?</label>
+                <input type="radio" name="q8" value="4">Every day is a party! 🎉<br>
+                <input type="radio" name="q8" value="3">Weekly fun times! 🎨<br>
+                <input type="radio" name="q8" value="2">Once a month maybe 🤔<br>
+                <input type="radio" name="q8" value="1">Rarely, I need more joy! 😞
+                <button type="button" onclick="nextQuestion()">Next Quest! 🚀</button>
+            </div>
+
+            <div class="question">
+                <label>9. Happy with your crew and connections?</label>
+                <input type="radio" name="q9" value="4">Love my squad! 💖<br>
+                <input type="radio" name="q9" value="3">They’re cool, I guess 😊<br>
+                <input type="radio" name="q9" value="2">Eh, it’s whatever 🤷<br>
+                <input type="radio" name="q9" value="1">Not feeling the love 😕
+                <button type="button" onclick="nextQuestion()">Next Quest! 🚀</button>
+            </div>
+
+            <div class="question">
+                <label>10. Got a solid support squad?</label>
+                <input type="radio" name="q10" value="4">Rock-solid crew! 🏰<br>
+                <input type="radio" name="q10" value="3">They’re there-ish 🤝<br>
+                <input type="radio" name="q10" value="2">Kinda, but not really 😐<br>
+                <input type="radio" name="q10" value="1">Solo mission vibes 😔
+                <button type="button" onclick="submitQuestionnaire()">Finish Adventure! 🎉</button>
+            </div>
+        </form>
+        <div class="result" id="resultContainer"></div>
+    </div>
+    <script src="quiz.js"></script>
+</body>
+</html>

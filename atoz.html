@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo.png" />
+    <title>LetItBe - Mental Health Guide</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            /* Modern, friendly font */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+            /* Soothing gradient */
+            color: #04310f;
+            /* Deep green text */
+            overflow-x: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2.5em;
+            color: #00796b;
+            /* Teal heading */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Entry/Card Styles */
+        .entry {
+            background: #f7faf9;
+            /* Light teal-ish background */
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #26a69a;
+            /* Teal accent */
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .entry:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background: #e0f7fa;
+        }
+
+        .entry h2 {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+            color: #00796b;
+        }
+
+        .entry h2 a {
+            color: #00796b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .entry h2 a:hover {
+            color: #004d40;
+            text-decoration: underline;
+        }
+
+        .description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Fun Details */
+        .entry::before {
+            content: "🌿";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5em;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .entry:hover::before {
+            opacity: 0.8;
+        }
+
+        /* Search Bar */
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #searchInput {
+            padding: 10px;
+            width: 60%;
+            max-width: 400px;
+            border: 2px solid #26a69a;
+            border-radius: 25px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #searchInput:focus {
+            border-color: #00796b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                margin: 0 10px 20px;
+                padding: 15px;
+            }
+
+            .entry {
+                padding: 15px;
+            }
+
+            #searchInput {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🌟 Mental Health Guide 🌟</h1>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for a condition...">
+    </div>
+
+    <div class="container">
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Anxiety_disorder">Anxiety Disorders</a></h2>
+            <p class="description">
+                Feeling jittery or scared more than usual? Anxiety disorders cover everything from constant worry (GAD)
+                to specific fears like heights or spiders.
+            </p>
+        </div>
+
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Bipolar_disorder">Bipolar Disorder</a></h2>
+            <p class="description">
+                A rollercoaster of moods! Bipolar disorder swings between high-energy mania and deep lows of
+                depression—quite the ride!
+            </p>
+        </div>
+
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Major_depressive_disorder">Clinical Depression</a></h2>
+            <p class="description">
+                More than just a bad day, clinical depression brings persistent sadness, hopelessness, and a loss of joy
+                in things you once loved.
+            </p>
+        </div>
+
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Dissociative_identity_disorder">Dissociative Identity Disorder
+                    (DID)</a></h2>
+            <p class="description">
+                Once called multiple personality disorder, DID splits a person’s identity into distinct “selves” that
+                take turns running the show.
+            </p>
+        </div>
+
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Eating_disorder">Eating Disorders</a></h2>
+            <p class="description">
+                Struggles with food and body image—like anorexia or bulimia—can take over, affecting health and
+                happiness in big ways.
+            </p>
+        </div>
+
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Generalized_anxiety_disorder">Generalized Anxiety Disorder
+                    (GAD)</a></h2>
+            <p class="description">
+                Excessive worry without a clear reason? GAD keeps your mind buzzing about life’s “what-ifs” all day
+                long.
+            </p>
+        </div>
+
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Insomnia">Insomnia</a></h2>
+            <p class="description">
+                Trouble sleeping? Insomnia makes it hard to drift off or stay asleep, leaving you tired and foggy by
+                day.
+            </p>
+        </div>
+
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Narcissistic_personality_disorder">Narcissistic Personality
+                    Disorder (NPD)</a></h2>
+            <p class="description">
+                All about me! NPD features a big ego, a craving for attention, and not much room for empathy.
+            </p>
+        </div>
+
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Postpartum_depression">Postpartum Depression</a></h2>
+            <p class="description">
+                After baby arrives, this depression can hit hard with mood swings and trouble bonding—more than just the
+                “baby blues.”
+            </p>
+        </div>
+
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Substance_abuse">Substance Use Disorder</a></h2>
+            <p class="description">
+                When drugs or alcohol take control, this disorder brings chaos—think addiction with serious life
+                impacts.
+            </p>
+        </div>
+
+        <div class="entry">
+            <h2><a href="https://en.wikipedia.org/wiki/Tourette_syndrome">Tourette Syndrome</a></h2>
+            <p class="description">
+                A neurological twist causing tics—sudden movements or sounds you can’t stop. It’s unique to each person!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const entries = document.querySelectorAll('.entry');
+
+        searchInput.addEventListener('input', function () {
+            const query = this.value.toLowerCase();
+
+            entries.forEach(entry => {
+                const title = entry.querySelector('h2').textContent.toLowerCase();
+                const description = entry.querySelector('.description').textContent.toLowerCase();
+
+                if (title.includes(query) || description.includes(query)) {
+                    entry.style.display = 'block';
+                    entry.style.opacity = '0';
+                    setTimeout(() => {
+                        entry.style.transition = 'opacity 0.5s ease';
+                        entry.style.opacity = '1';
+                    }, 10);
+                } else {
+                    entry.style.transition = 'opacity 0.3s ease';
+                    entry.style.opacity = '0';
+                    setTimeout(() => entry.style.display = 'none', 300);
+                }
+            });
+        });
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        entries.forEach(entry => {
+            entry.style.opacity = '0';
+            entry.style.transform = 'translateY(30px)';
+            entry.style.transition = 'all 0.5s ease';
+            observer.observe(entry);
+        });
+    </script>
+</body>
+
+</html>
